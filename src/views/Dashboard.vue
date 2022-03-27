@@ -4,7 +4,8 @@
     <div class="card">
       <div class="card-body" v-if="user">
         <h3>Hello, {{ user.name }}</h3>
-        <span>{{ user.email }}</span>
+        <span>{{ user.email }}</span><br>
+        <span>{{ birthDate }}</span>
       </div>
     </div>
   </div>
@@ -16,7 +17,8 @@ import User from "../apis/User";
 export default {
   data() {
     return {
-      user: null
+      user: null,
+      birthDate: null
     };
   },
 
@@ -24,6 +26,11 @@ export default {
     User.auth().then(response => {
       this.user = response.data;
     });
+
+    User.birthdate().then(response => {
+      this.birthDate = response.data;
+    });
+
   }
 };
 </script>

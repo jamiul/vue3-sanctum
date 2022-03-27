@@ -22,5 +22,8 @@ export default {
 
   auth() {
     return Api.get("/user");
+  },
+  birthdate(){
+    return Api.get("/birthdate");
   }
 };
